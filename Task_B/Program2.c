@@ -2,13 +2,30 @@
 int main() {
     int n, count = 1, top = -1;
     scanf("%d", &n);
+    if (n < 1 || n>100)
+    {
+        printf("value input error");
+        return -1;
+    }
     int train[n]; //array for storing wagons (dead end)
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &train[i]);
+        if (train[i]<1 || train[i]>n)
+        {
+            printf("wrong wagon number");
+            return -1;
+        }
+        for (int j = i - 1; j > 0; j--)
+        {
+            if (train[i] == train[j])
+            {
+                printf("repeated wagon number");
+                return -1;
+            }
+        }
     }
     int stack[n];
-
     for (int i = 0; i < n; i++)
     {
         if (train[i] == count)
