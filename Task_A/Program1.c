@@ -7,14 +7,15 @@ int main() {
     char last_open = ' ';
     int n, N;
     scanf("%d", &N);
-    getchar();
-    gets(Str);
-    n = strlen(Str);
     if (N > 100000 || N < 1)
     {
         printf("The entered number does not fall within the specified boundaries(1<=N<=100000)");
         return -1;
     }
+    getchar();
+    gets(Str);
+    n = strlen(Str);
+
     if (n != N)
     {
         printf("The entered number differs from the number of brackets");

@@ -1,0 +1,48 @@
+1.
+A test for the correctness of the program when entering the correct sequence of brackets:
+Input data:
+6
+( { [ ] } )
+Expected output:
+Yes
+2.
+A test for the correctness of the program when entering an incorrect sequence of brackets:
+Input data:
+6
+( { [ ) ] }
+Expected output:
+NO
+3.
+Test for the correctness of the program when entering an incorrect number N:
+Input data:
+100001
+( { [ ] } )
+Expected output:
+The entered number does not fall within the specified boundaries(1<=N<=100000)
+4.
+Test for the correctness of the program when entering a string containing an invalid element:
+Input data:
+5
+( a [ ]
+Expected conclusion:
+an invalid element is present in the entered line
+5.
+A test for the correctness of the program when entering only open brackets:
+Input data:
+4
+( { [ [
+Expected output:
+NO
+6.
+A test for the correctness of the program when entering only closed brackets:
+Input data:
+5
+} ) ] ] }
+Expected output:
+NO
+7.
+Test for the correctness of the program when entering an empty line:
+Input data:
+0
+Expected output:
+The entered number does not fall within the specified limits(1<=N<=100000)
