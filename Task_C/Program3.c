@@ -1,37 +1,41 @@
 #include <stdio.h>
-long long h[1000000];
-int i, n, left, right;
-long long S, result;
-int main()
-{
-    scanf("%d", &n);
-    if (n == NULL || n > 1000000 || n < 1)
-    {
-        printf("value input error");
-        return -1;
-    }
-    for (i = 1; i <= n; i++)
-        scanf("%d", &h[i]);
-    if (h[i] == NULL || h[i] < 0)
-    {
-        printf("value input error");
-        return -1;
-    }
-    result = 0;
-    for (i = 1; i <= n; i++)
-    {
-        left = right = i;
-        while (left > 1 && h[left - 1] >= h[i]) left--;
-        while (right < n && h[right + 1] >= h[i]) right++;
-        S = (right - left + 1) * h[i];
-        if (S > result) result = S;
-    }
-    printf("%lld\n", result);
-    return 0;
+int main() {
+	int n;
+	int stack[100000];
+	scanf("%d", &n);
+	while (n--)
+	{
+		int k, i, head = 0, tail = 0;
+		double priority, lastPriority = -1;
+		scanf("%d", &k);
+		for (i = 0; i < k; i++)
+		{
+			scanf("%lf", &priority);
+			if (priority >= lastPriority)
+			{
+				// перемещаем все контейнеры из склада в цех В
+				while (tail > 0 && priority >= lastPriority)
+				{
+					tail--;
+					lastPriority = tail > 0 ? stack[tail - 1] : -1;
+				}
+				lastPriority = priority;
+			}
+			else
+			{
+				// помещаем контейнер в склад
+				stack[tail++] = priority;
+			}
+		}
+		// проверяем, что в складе все контейнеры упорядочены по убыванию степени срочности
+		int sorted = 1;
+		for (i = 1; i < tail; i++) {
+			if (stack[i] > stack[i - 1]) {
+				sorted = 0;
+				break;
+			}
+		}
+		printf("%d\n", sorted);
+	}
+	return 0;
 }
-/*i variable for the loop.
-n the number of elements.
-left right are the boundaries of the area that I work with in the loop
-
-In the loop, I check the area for each i element many times and expand its boundaries,
-after which I compare it with the result.*/
