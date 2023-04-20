@@ -1,0 +1,24 @@
+1.
+Checking the normal input with correct data 
+Input: 7 2 2 5 5 4 3 1 
+Expected output: 12
+2.
+Checking an input with an incorrect value of N (less than 1) 
+Input: -2
+Expected output: value input error
+3.
+Zero Test:
+Input data: 0 
+Expected output: value input error
+4.
+Test for exceeding the allowed number of array elements:
+Input data: 1000001
+Expected output: value input error
+5.
+Checking an input with an incorrect height value (less than 0)
+Input: 7 2 -1 4 5 1 3 3
+Expected output: value input error
+6.
+Checking an input with an incorrect height value (equal to 0)
+Input: 7 2 0 4 5 1 3 3 
+Expected output: value input error

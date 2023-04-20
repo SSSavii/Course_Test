@@ -10,15 +10,18 @@ int main()
         printf("value input error");
         return -1;
     }
-    for (i = 1; i <= n; i++)
-        scanf("%d", &h[i]);
-    if (h[i] == NULL || h[i] < 0)
+    for (i = 0; i < n; i++)
     {
-        printf("value input error");
-        return -1;
+        scanf("%lld", &h[i]);
+
+        if (h[i] == NULL || h[i] < 0)
+        {
+            printf("value input error");
+            return -1;
+        }
     }
     result = 0;
-    for (i = 1; i <= n; i++)
+    for (i = 0; i < n; i++)
     {
         left = right = i;
         while (left > 1 && h[left - 1] >= h[i]) left--;
